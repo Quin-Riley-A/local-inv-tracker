@@ -30,6 +30,64 @@ class InvDisplayControl extends React.Component {
     }
   }
 
+  handleAddingNewTeaToList = (newTea) => {
+    const newMainTeaList = this.state.mainTeaList.concat(newTea);
+    this.setState({
+      mainTeaList: newMainTeaList,
+      formVisibleOnPage: false
+    });
+  }
+
+  // handleTeaDetail = () => {
+    
+  // }
+
+  handleTeaInvSale = (id) => {
+    const selectedTea = this.state.mainTeaList
+      .filter(tea => tea.id === id)[0];
+    if (selectedTea.quantity >= 1) {
+      const teaBeingSold = { ...selectedTea, quantity: selectedTea.quantity -1 }
+      const newMainTeaList = this.state.mainTeaList
+        .filter(tea => tea.id !== id).concat(teaBeingSold);
+      this.setState({
+        mainTeaList: newMainTeaList
+      });
+    }
+  }
+
+  handleChangingSelectedTea = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
+    this.setState({
+      selectedTea: selectedTea
+    });
+  }
+
+  handleEditClick = () => {
+    this.setState({
+      editing: true
+    });
+  }
+
+  handleEditingTeaInList = (teaToEdit) => {
+    const editedMainTeaList = this.state.mainTeaList
+      .filter(tea => tea.id !== this.state.selectedTea.id)
+      .concat(teaToEdit);
+    this.setState({
+      mainTeaList: editedMainTeaList,
+      editing: false,
+      selectedTea: null
+    });
+  }
+
+  handleDeletingTea = (id) => {
+    const newMainTeaList = this.state.mainTeaList
+      .filter(tea => tea.id !== id);
+    this.setState({
+      mainTeaList: newMainTeaList,
+      selectedTea: null
+    });
+  }
+
   render () {
     let currentlyVisibleState = null;
     let buttonText = null;
