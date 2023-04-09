@@ -3,7 +3,7 @@ import Header from "./Header";
 import InvDisplayControl from "./InvDisplayControl";
 import Footer from "./Footer";
 
-function App() {
+export default function App() {
   return (
     <React.Fragment>
       <Header />
@@ -12,5 +12,3 @@ function App() {
     </React.Fragment>
   );
 }
-
-export default App;

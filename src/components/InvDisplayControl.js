@@ -94,7 +94,7 @@ class InvDisplayControl extends React.Component {
 
     if (this.state.editing) {
       currentlyVisibleState = <EditTeaForm
-        bean = { this.state.selectedTea }
+        tea = { this.state.selectedTea }
         onEditTea = { this.handleEditingTeaInList } />
       buttonText = "Return to List of Tea";
     }
