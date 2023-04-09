@@ -8,7 +8,8 @@ export default function TeaList(props) {
       <hr />
       {props.teaList.map((tea) =>
       <Tea
-        whenTeaClicked={ props.onTeaClicked }
+        whenTeaClicked={ props.onTeaSelection }
+        whenSellTeasClicked = { props.onSellTeaClicked }
         name={tea.name}
         variety={tea.variety}
         description={tea.description}
@@ -23,4 +24,5 @@ export default function TeaList(props) {
 TeaList.propTypes= {
   teaList: PropTypes.array,
   onTeaSelection: PropTypes.func,
+  onSellTeaClicked: PropTypes.func
 };

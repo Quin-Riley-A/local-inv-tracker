@@ -88,6 +88,18 @@ class InvDisplayControl extends React.Component {
     });
   }
 
+
+  handleTeaClicked = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
+    if (selectedTea.quantity >= 1) {
+      const teaBeingSold = {...selectedTea, quantity: selectedTea.quantity - 1};
+      const newMainTeaList = this.state.mainTeaList.filter(tea => tea.id !== id).concat(teaBeingSold);
+      this.setState({
+        mainTeaList: newMainTeaList
+      });
+    }
+  }
+
   render () {
     let currentlyVisibleState = null;
     let buttonText = null;
