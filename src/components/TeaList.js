@@ -9,7 +9,7 @@ export default function TeaList(props) {
       {props.teaList.map((tea) =>
       <Tea
         whenTeaClicked={ props.onTeaSelection }
-        whenSellTeasClicked = { props.onSellTeaClicked }
+        whenSellTeaClicked = { props.onSellTeaClicked }
         name={tea.name}
         variety={tea.variety}
         description={tea.description}

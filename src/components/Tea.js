@@ -8,7 +8,9 @@ export default function Tea(props) {
         <h3>{props.name}</h3>
         <h5>{props.variety}</h5>
         <h5>Quantity: {props.quantity} lbs</h5>
+        <hr />
       </div>
+      <button onClick ={() => props.whenSellTeaClicked(props.id)}> Sell 1 Pound of Tea</button>
     </React.Fragment>
   );
 }
@@ -19,5 +21,6 @@ Tea.propTypes = {
   variety: PropTypes.string.isRequired,
   quantity: PropTypes.string.isRequired,
   id: PropTypes.string,
-  whenTeaClicked: PropTypes.func
+  whenTeaClicked: PropTypes.func,
+  whenSellTeaClicked: PropTypes.func
 };
